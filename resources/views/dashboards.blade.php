@@ -25,14 +25,19 @@
                         <li class="active"><i class="fa fa-home" aria-hidden="true"></i><a href="/"
                                                                                            target="_self">Home</a>
                         </li>
-                        </li>
+
                         <li><i class="fa fa-tachometer" aria-hidden="true"></i><a href="dashboards"
                                                                                   target="_self">Dashboard</a>
 
+                        @if(Auth::check())
+
+                            <li><p class="btn dropdown-toggle nav-link notranslate" role="button" id="dropdownMenuButton" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>
+                                    {{ Auth::user()->name }}</p></li>
+
+                        @endif
                     </ul>
                 </nav>
             </div>
-
 
         </header>
         <main>
