@@ -33,7 +33,17 @@
 
                             <li><p class="btn dropdown-toggle nav-link notranslate" role="button" id="dropdownMenuButton" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>
                                     {{ Auth::user()->name }}</p></li>
-
+                            <li><a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> Uitloggen</a><li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        @elseif(!Auth::check())
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::path() === 'login' ? 'active' : '' }}" href="/login"><i class="fa fa-user"></i> Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::path() === 'register' ? 'active' : '' }}" href="/register"><i class="fa fa-pencil"></i> Register</a>
+                            </li>
                         @endif
                     </ul>
                 </nav>
