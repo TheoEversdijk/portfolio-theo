@@ -16,9 +16,9 @@ class UserSeeder extends Seeder
     {
         User::factory(1)->create([
             'name' => 'Admin',
-            'email' => 'Admin@ZeelenbergArchitectuur.com',
+            'email' => 'Admin@portfolio.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('sustainable'), // password
+            'password' => bcrypt('123456789'), // password
         ]);
     }
 }
