@@ -36,13 +36,6 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
-                        @elseif(!Auth::check())
-                            <li class="nav-item">
-                                <a class="nav-link {{ Request::path() === 'login' ? 'active' : '' }}" href="/login"><i class="fa fa-user"></i> Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {{ Request::path() === 'register' ? 'active' : '' }}" href="/register"><i class="fa fa-pencil"></i> Register</a>
-                            </li>
                         @endif
                     </ul>
                 </nav>
