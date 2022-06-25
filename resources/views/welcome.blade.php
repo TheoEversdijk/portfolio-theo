@@ -25,13 +25,13 @@
                                                                                            target="_self">Home</a>
                         </li>
 
-                        <li><i class="fa fa-tachometer" aria-hidden="true"></i><a href="dashboards"
-                                                                                  target="_self">Dashboard</a>
 
                         @if(Auth::check())
 
-                        <li><p class="btn dropdown-toggle nav-link notranslate" role="button" id="dropdownMenuButton" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>
-                                {{ Auth::user()->name }}</p></li>
+                            <li><i class="fa fa-tachometer" aria-hidden="true"></i><a href="dashboards"
+                                                                                      target="_self">Dashboard</a>
+                            <li><p class="btn dropdown-toggle nav-link notranslate" role="button" id="dropdownMenuButton" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>
+                                    {{ Auth::user()->name }}</p></li>
                             <li><a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> Uitloggen</a><li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
