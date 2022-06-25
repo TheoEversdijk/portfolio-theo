@@ -51,7 +51,7 @@
         </header>
         <main>
             <article>
-                <p>Hallo :)</p>
+                <p></p>
             </article>
         </main>
 
