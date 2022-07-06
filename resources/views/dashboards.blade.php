@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="icon" href="images/hz.png">
+    <link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -50,23 +51,38 @@
             </div>
 
         </header>
+        <br>
         <main>
             <article>
+                <form action="{{ url('contact') }}" method="post">
+                    @csrf
+                    <div class="container">
+                        <div>
+                        <label class="form-label fw-bold" for="name">Naam</label>
+                        <span data-tooltip="De naam moet minimaal drie tekens lang zijn"><i class="fa fa-question-circle-o note-image"></i></span>
+                        </div>
+                        <div>
+                            <input class="form-control @error('collaborator') is-invalid @enderror" type="text"
+                                   name="name" id="name">
+                        </div>
+                        @foreach($errors->all() as $error)
+                            @error('name')
+                            <div class="alert alert-danger"> {{ $error }} </div>
+                            @enderror
+                        @endforeach
+                    </div>
+
+
+                </form>
+                <br>
                 @foreach($contacts as $item)
-                    <tr>
-                        <td>{{ $item->name }}</td>
-                    </tr>
+                        <td>{{ $item->name }}</td><br>
                 @endforeach
             </article>
-            <form action="{{ url('contact') }}" method="post">
-                {!! csrf_field() !!}
-                <label>Name</label></br>
-                <input type="text" name="name" id="name" class="form-control">
-            </form>
         </main>
-        <div id="content">
-            <a href="https://hz.nl"><img src="images/hz.png" alt="HZ Site" class="hz" target="_blank"></a>
-        </div>
+{{--        <div id="content">--}}
+{{--            <a href="https://hz.nl"><img src="images/hz.png" alt="HZ Site" class="hz" target="_blank"></a>--}}
+{{--        </div>--}}
     </div>
     <footer id="footer">
         <p>Theo Eversdijk</p>

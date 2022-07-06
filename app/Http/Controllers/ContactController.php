@@ -25,8 +25,7 @@ class ContactController extends Controller
      */
     public function create(request $request)
     {
-        $input = $request->all();
-        Contact::create($input);
+        $new = Contact::create($this->validateProject($request));
         $contacts = Contact::all();
         return view ('dashboards')->with('contacts', $contacts);
     }
@@ -85,5 +84,23 @@ class ContactController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Validate the inputs
+     *
+     * @param Request $request request
+     * @return array
+     */
+    private function validateProject(Request $request): array
+    {
+        return $request->validate([
+            'name' => 'required|min:3'
+        ],
+            [
+                'name.required' => 'Een naam is vereist',
+                'name.min' => 'De naam moet minimaal drie tekens lang zijn',
+            ]
+        );
     }
 }

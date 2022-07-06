@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PhoneController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,4 +27,7 @@ require __DIR__.'/auth.php';
 
 Route::get('/dashboards', [ContactController::class, 'index'])->middleware(['auth']);
 
+Route::get('/ajax', function () {
+    return view('ajax');
+});
 Route::post('/contact', [ContactController::class, 'create']);
