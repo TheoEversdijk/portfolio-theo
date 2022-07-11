@@ -25,6 +25,8 @@
     <!-- Css styling -->
     <link rel="stylesheet" href="/css/style.css" />
 
+    <!-- Dropzone styling -->
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 </head>
 
 <body>
