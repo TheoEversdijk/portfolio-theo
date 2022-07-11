@@ -25,32 +25,32 @@
     {{--Dropzone JS--}}
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 
-{{--    <script type="text/javascript">--}}
-{{--        Dropzone.autoDiscover = false;--}}
-{{--        let myDropzone = new Dropzone(".dropzone", {--}}
-{{--            acceptedFiles: ".jpeg,.jpg,.png",--}}
-{{--            maxFiles: 1,--}}
-{{--            maxFilesize: 5, // 5 mb--}}
-{{--            addRemoveLinks: true,--}}
-{{--            autoProcessQueue: false, // Upload of image is delayed until user pressed 'toevoegen'--}}
-{{--            // errors--}}
-{{--            init: function () {--}}
-{{--                // Error if uploading more than one file--}}
-{{--                this.on("maxfilesexceeded", function () {--}}
-{{--                    alert("Je kan niet meer dan één afbeelding gebruiken.");--}}
-{{--                });--}}
-{{--                this.on("error", function (file) {--}}
-{{--                    let fileExtension = file.name.split('.').pop();--}}
-{{--                    if (fileExtension !== 'jpg' && fileExtension !== 'jpeg' && fileExtension !== 'png') {--}}
-{{--                        alert("Dit bestandstype is niet toegestaan.");--}}
-{{--                    } else if (file.size > 5) {--}}
-{{--                        alert("Deze afbeelding is te groot.");--}}
-{{--                    } else {--}}
-{{--                        alert("Deze afbeelding is niet toegestaan.");--}}
-{{--                    }--}}
-{{--                    this.removeFile(file);--}}
-{{--                });--}}
-{{--            },--}}
-{{--        })--}}
-{{--    </script>--}}
+    <script type="text/javascript">
+        Dropzone.autoDiscover = false;
+        let myDropzone = new Dropzone(".dropzone", {
+            acceptedFiles: ".jpeg,.jpg,.png",
+            maxFiles: 1,
+            maxFilesize: 5, // 5 mb
+            addRemoveLinks: true,
+            autoProcessQueue: false, // Upload of image is delayed until user pressed 'toevoegen'
+            // errors
+            init: function () {
+                // Error if uploading more than one file
+                this.on("maxfilesexceeded", function () {
+                    alert("Je kan niet meer dan één afbeelding gebruiken.");
+                });
+                this.on("error", function (file) {
+                    let fileExtension = file.name.split('.').pop();
+                    if (fileExtension !== 'jpg' && fileExtension !== 'jpeg' && fileExtension !== 'png') {
+                        alert("Dit bestandstype is niet toegestaan.");
+                    } else if (file.size > 5) {
+                        alert("Deze afbeelding is te groot.");
+                    } else {
+                        alert("Deze afbeelding is niet toegestaan.");
+                    }
+                    this.removeFile(file);
+                });
+            },
+        })
+    </script>
 @endsection
