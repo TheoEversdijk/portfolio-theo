@@ -28,9 +28,9 @@ class DropzoneController extends Controller
      */
     public function dropzoneStore(Request $request)
     {
-//        $image = $request->file('file');
-//        $imageName = $image->getClientOriginalName();
-//        $image->move(public_path('img/uploaded'), $imageName);
-//        return response()->json(['success'=>$imageName]);
+        $image = $request->file('file');
+        $imageName = $image->getClientOriginalName();
+        $image->move(public_path('img/uploaded'), $imageName);
+        return response()->json(['success'=>$imageName]);
     }
 }
