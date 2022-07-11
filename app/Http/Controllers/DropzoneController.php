@@ -14,7 +14,7 @@ class DropzoneController extends Controller
      */
     public function index(Request $request)
     {
-        $path = public_path('img\uploaded');
+        $path = public_path('img/uploaded');
         $files = \File::files($path);
 
         return view('welcome', compact('files'));
@@ -30,7 +30,7 @@ class DropzoneController extends Controller
     {
         $image = $request->file('file');
         $imageName = $image->getClientOriginalName();
-        $image->move(public_path('img\uploaded'), $imageName);
+        $image->move(public_path('img/uploaded'), $imageName);
         return response()->json(['success'=>$imageName]);
     }
 }
