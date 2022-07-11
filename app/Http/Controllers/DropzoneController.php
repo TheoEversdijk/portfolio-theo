@@ -8,6 +8,19 @@ use Illuminate\Http\Request;
 class DropzoneController extends Controller
 {
     /**
+     * Display a listing of the resource.
+     *
+     * @return Application|Factory|View
+     */
+    public function index(Request $request)
+    {
+        $path = public_path('img/uploaded');
+        $files = \File::files($path);
+
+        return view('welcome', compact('files'));
+    }
+
+    /**
      * Return json response with image
      *
      * @param Request $request

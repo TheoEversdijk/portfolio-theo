@@ -14,6 +14,10 @@
         <div class="dz-default dz-message"><span>Klik hier om de gewenste afbeelding te selecteren of sleep het in deze box</span></div>
     </form>
     <button onclick="myDropzone.processQueue()">Toevoegen</button>
+
+    @foreach($files as $file)
+    <p>{{ $file }}</p>
+    @endforeach
 @endsection
 
 @section('script')

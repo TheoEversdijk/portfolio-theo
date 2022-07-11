@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 // Dropzone Store Image
+Route::resource('/', DropzoneController::class);
 Route::post('/dropzone-store', [DropzoneController::class, 'dropzoneStore'])->name('dropzone-store');
