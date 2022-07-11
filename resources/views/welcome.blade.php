@@ -9,7 +9,7 @@
     <label class="form-label fw-bold" for="image">Afbeelding Dropzone</label>
     {{-- Dropzone--}}
     <form method="POST" action="{{route('dropzone-store')}}" enctype="multipart/form-data"
-          class="dropzone dz-clickable" id="image-upload">
+          class="dropzone dz-clickable">
         @csrf
         <div class="dz-default dz-message"><span>Klik hier om de gewenste afbeelding te selecteren of sleep het in deze box</span></div>
     </form>
@@ -18,6 +18,7 @@
     @foreach($files as $file)
     <p>{{ $file }}</p>
     @endforeach
+
 @endsection
 
 @section('script')
@@ -32,6 +33,7 @@
             maxFilesize: 5, // 5 mb
             addRemoveLinks: true,
             autoProcessQueue: false, // Upload of image is delayed until user pressed 'toevoegen'
+            // errors
             init: function () {
                 // Error if uploading more than one file
                 this.on("maxfilesexceeded", function () {
@@ -43,6 +45,8 @@
                         alert("Dit bestandstype is niet toegestaan.");
                     } else if (file.size > 5) {
                         alert("Deze afbeelding is te groot.");
+                    } else {
+                        alert("Deze afbeelding is niet toegestaan.");
                     }
                     this.removeFile(file);
                 });
