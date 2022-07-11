@@ -10,9 +10,9 @@ class DropzoneController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Application|Factory|View
+     * @return Application
      */
-    public function index(Request $request)
+    public function index()
     {
         $path = public_path('img/uploaded');
         $files = \File::files($path);
